@@ -60,20 +60,4 @@ justify-content: center;
     color: white;
     transform: rotateY(180deg);
   }
-  #tim{
-    background-color: rgb(104, 106, 192);
-    position:absolute;
-    left:320px;
-    border-radius: 50px;
-    box-shadow: 10px 10px 10px rgb(126, 115, 139);
-    
-
-}
-.b1
-{
-    position:absolute;
-    left: 750px;
-    top: 35px;
-}
-
   

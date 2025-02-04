@@ -10,9 +10,16 @@
     <video id="background-video" autoplay  muted poster="" >
         <source src="Beige and Green Playful Illustrative Animated Memory Game Presentation.mp4" type="video/mp4">
       </video> 
-
-      <button id="b1" onclick="window.open('harish.html','_blank')"  >play</button>
-      <button id="b2" >Difficulity</button>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">difficulity</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#" id="e"onclick="red()" >Easy</a>
+          <a href="#" id="h"onclick="red1()">Hard </a>
+          <a href="#"id="m" onclick="red2()">Medium </a>
+        </div>
+      </div>
+      <button id="b1" onclick="demo()"  >play</button>
+      
       <button id="b3" onclick="showImage()">Instructions</button>
       <script src="first.js"></script>
       
