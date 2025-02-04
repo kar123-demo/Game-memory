@@ -25,41 +25,39 @@ function showImage() {
 }
 
 
-function red() {
-    document.getElementById("b1").textContent = "play:Easy";
-}
+let difficulty = "";
 
-
-function red1() {
-    document.getElementById("b1").textContent = "play:Hard";
-}
-
-function red2() {
-    document.getElementById("b1").textContent = "play:Medium";
-}
-
-
-function demo() {
-    let buttonText = document.getElementById("b1").textContent;
-    if (buttonText === "play") { 
-        window.alert("Please select difficulty");
-    } else {
-        window.open('harish.html', '_blank'); 
-    }
-}
-
-function myFunction() {
+function toggleDropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function setDifficulty(level) {
+    difficulty = level;
+    document.getElementById("selectedDifficulty").innerText = "Selected Difficulty: " + level;
+    document.getElementById("myDropdown").classList.remove("show");
+}
+
+function startGame() {
+    if (difficulty) {
+        alert("Starting game with " + difficulty + " difficulty!");
+    } else {
+        alert("Please select a difficulty level first.");
+    }
+}
+
+function showInstructions() {
+    alert("Instructions: \n1. Select a difficulty level.\n2. Click 'Play' to start the game.");
+}
+
+
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
                 openDropdown.classList.remove('show');
             }
         }
     }
-}
+};
