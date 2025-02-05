@@ -1,3 +1,4 @@
+
 const v = document.getElementById("background-video");
 v.onended = function() {
     v.pause(); 
@@ -25,39 +26,41 @@ function showImage() {
 }
 
 
-let difficulty = "";
-
-function toggleDropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function red() {
+    document.getElementById("h").textContent = "Selected difficulity:Easy";
 }
 
-function setDifficulty(level) {
-    difficulty = level;
-    document.getElementById("selectedDifficulty").innerText = "Selected Difficulty: " + level;
-    document.getElementById("myDropdown").classList.remove("show");
+
+function red2() {
+    document.getElementById("h").textContent = "Selected difficulity:Hard";
 }
 
-function startGame() {
-    if (difficulty) {
-        alert("Starting game with " + difficulty + " difficulty!");
+function red1() {
+    document.getElementById("h").textContent = "Selected difficulity:Medium";
+}
+
+
+function demo() {
+    let buttonText = document.getElementById("h").textContent;
+    if (buttonText === "Selected difficulity:None") { 
+        window.alert("Please select difficulty");
     } else {
-        alert("Please select a difficulty level first.");
+        window.open('harish.html', '_blank'); 
     }
 }
 
-function showInstructions() {
-    alert("Instructions: \n1. Select a difficulty level.\n2. Click 'Play' to start the game.");
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
 }
-
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-        let dropdowns = document.getElementsByClassName("dropdown-content");
-        for (let i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
                 openDropdown.classList.remove('show');
             }
         }
     }
-};
+}
