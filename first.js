@@ -42,7 +42,7 @@ function red1() {
 
 function demo() {
     let buttonText = document.getElementById("h").textContent;
-    if (buttonText === "Selected difficulity:None") { 
+    if (buttonText === "Selected level:") { 
         window.alert("Please select difficulty");
     } else {
         window.open('harish.html', '_blank'); 
