@@ -16,9 +16,9 @@ overflow: hidden;
  .main{
 
 
- align-items: center;
+ align-items:center;
 justify-content: center;
-  display: grid;
+  display:grid;
   grid-auto-flow: dense;
   grid-auto-rows: 200px auto auto;
   grid-template-columns: repeat(4,1fr);
@@ -60,4 +60,42 @@ justify-content: center;
     color: white;
     transform: rotateY(180deg);
   }
+#tim{
+  background-color: rgb(21, 125, 221);
+  position: absolute;
+  border-radius: 42%;
+  top:5vh;
+  left: 25vw;
+}
+#move{
+    background-color: #f3f3f3;
+    position: absolute;
+    border-radius: 42%;
+    top: 5vh;
+    right: 30vw;
+
+}
+body{
   
+  overflow: hidden;
+  background-image: url("backk.jpg") ;
+  background-position:center;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+@media screen and (max-width:600px)
+{
+.main{
+  
+
+  width : 100px;;
+  margin-top : 0px;
+}
+}
+.main1 ::-webkit-scrollbar
+{
+  display: none;
+}
+ 
