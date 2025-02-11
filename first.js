@@ -27,22 +27,22 @@ function showImage() {
 
 
 function red() {
-    document.getElementById("h").textContent = "Selected difficulity:Easy";
+    document.getElementById("b1").textContent = "play — Easy 😊";
 }
 
-
-function red2() {
-    document.getElementById("h").textContent = "Selected difficulity:Hard";
-}
 
 function red1() {
-    document.getElementById("h").textContent = "Selected difficulity:Medium";
+    document.getElementById("b1").textContent = "play — Medium 🤔";
+}
+
+function red2() {
+    document.getElementById("b1").textContent = "play — Hard 😠";
 }
 
 
 function demo() {
-    let buttonText = document.getElementById("h").textContent;
-    if (buttonText === "Selected level:") { 
+    let buttonText = document.getElementById("b1").textContent;
+    if (buttonText === "play") { 
         window.alert("Please select difficulty");
     } else {
         window.open('harish.html', '_blank'); 

@@ -1,24 +1,64 @@
-let v=100;
-let moves=0;
-let c=0;
-setInterval(()=>{
-  document.getElementById("t1").textContent="timer:"+v;
-  v--;
-},1500);
+let v = 100;
+let moves = 0;
+let c = 0;
+let flippedCards = [];
+let lockBoard = false;
+
 function flipCard(card) {
-    const cardInner = card.querySelector('.card-inner');
-    cardInner.style.transform = cardInner.style.transform === 'rotateY(180deg)'
-      ? 'rotateY(0deg)'
-      : 'rotateY(180deg)';  
-       
-  
-   
-    moves++;
-  
-    if(moves%2==0) {
-      c++;
+  if (lockBoard || flippedCards.includes(card)) return;
+
+  card.classList.add('flip');
+  flippedCards.push(card);
+
+  if (flippedCards.length === 2) {
+    lockBoard = true;
+
+    if (flippedCards[0].querySelector('.card-back img').src === flippedCards[1].querySelector('.card-back img').src) {
+      flippedCards = [];
+      lockBoard = false;
+    } else {
+      setTimeout(() => {
+        flippedCards[0].classList.remove('flip');
+        flippedCards[1].classList.remove('flip');
+        flippedCards = [];
+        lockBoard = false;
+      }, 1000);
+    }
+  }
+
+  moves++;
+  if (moves % 2 === 0) {
+    c++;
     document.getElementById("m1").textContent = `Moves: ${c}`;
   }
+}
+
+function shuffleCards() {
+  const cards = document.querySelectorAll('.card2');
+  const cardArray = Array.from(cards);
+
+  for (let i = 0; i < cardArray.length; i++) {
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [cardArray[i], cardArray[j]] = [cardArray[j], cardArray[i]];
   }
-  
-   
+
+  const main = document.querySelector('.main');
+  cardArray.forEach(card => {
+    main.appendChild(card);
+  });
+}
+
+window.onload = shuffleCards;
+
+setInterval(() => {
+  document.getElementById("t1").textContent = "timer: " + v;
+  v--;
+}, 1500);
+
+
+const cards = document.querySelectorAll('.card2');
+cards.forEach(card => {
+  card.addEventListener('click', function() {
+    flipCard(card);
+  });
+});
